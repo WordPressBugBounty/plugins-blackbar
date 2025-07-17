@@ -2,7 +2,7 @@
 Contributors: pryley, geminilabs
 Donate link: https://ko-fi.com/pryley
 Tags: blackbar, black bar, debug bar, debugbar, debugging, development, blackbox
-Tested up to: 6.5
+Tested up to: 6.8
 Stable tag: 4.1.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,11 +33,11 @@ If you have never installed a WordPress plugin before, you can [read instruction
 
 To add entries to the console, insert the following line of PHP anywhere in your code:
 
-`apply_filters('console', 'Enter something to debug here');`
+`do_action('console', 'Enter something to debug here');`
 
 You can also add an optional log level like this:
 
-`apply_filters('console', 'Enter something to debug here', 'error');`
+`do_action('console', 'Enter something to debug here', 'error');`
 
 The available log levels are: `debug`, `info`, `notice`, `warning`, `error`, `critical`, `alert`, and `emergency`.
 
@@ -47,11 +47,11 @@ To use the profiler, insert the following lines of PHP _before_ and _after_ the 
 
 *Before:*
 
-`apply_filters('trace:start', 'Enter a description of what you are profiling here');`
+`do_action('timer:start', 'Enter a description of what you are profiling here');`
 
 *After:*
 
-`apply_filters('trace:stop');`
+`do_action('timer:stop');`
 
 = How do I enable the plugin for non-administrators? =
 
@@ -68,6 +68,38 @@ By default, Black Bar displays the 50 slowest action/filter hooks. To display al
 == Changelog ==
 
 = 4.1.4 (2024-05-08) =
+
+- Added "blackbar/hooks/all" filter hook
+- Added highlighting of major WordPress hooks
+- Added support for static callables used for hook callbacks in Site Reviews
+- Change minimum PHP version to 7.4
+- Change minimum WordPress version to 6.1
+
+= 4.1.3 (2024-05-08) =
+
+- Added "blackbar/hooks/all" filter hook
+- Added highlighting of major WordPress hooks
+- Added support for static callables used for hook callbacks in Site Reviews
+- Change minimum PHP version to 7.4
+- Change minimum WordPress version to 6.1
+
+= 4.1.2 (2024-05-08) =
+
+- Added "blackbar/hooks/all" filter hook
+- Added highlighting of major WordPress hooks
+- Added support for static callables used for hook callbacks in Site Reviews
+- Change minimum PHP version to 7.4
+- Change minimum WordPress version to 6.1
+
+= 4.1.1 (2024-05-08) =
+
+- Added "blackbar/hooks/all" filter hook
+- Added highlighting of major WordPress hooks
+- Added support for static callables used for hook callbacks in Site Reviews
+- Change minimum PHP version to 7.4
+- Change minimum WordPress version to 6.1
+
+= 4.1.0 (2024-05-08) =
 
 - Added "blackbar/hooks/all" filter hook
 - Added highlighting of major WordPress hooks
@@ -98,7 +130,7 @@ By default, Black Bar displays the 50 slowest action/filter hooks. To display al
 - Added syntax highlighting to console entries
 - Added trace information to SQL queries
 - Beautified SQL formating
-- Changed Profiler usage (use the "trace:start" and "trace:stop" hooks)
+- Changed Profiler usage (use the "timer:start" and "timer:stop" hooks)
 - Improved Profiler, it is now also more accurate
 - Refreshed UI
 - Requires PHP >= 7.3
